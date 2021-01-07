@@ -16,9 +16,9 @@ function Bintang($rating){
 	for( $x = 0; $x < 5; $x++ )
     {
         if( floor($rating)-$x >= 1 )
-        {$html.= '<i class="fa fa-star" style="color:yellow"></i>'; }
+        {$html.= '<i class="fa fa-star" style="color:#ffc107;"></i>'; }
         elseif( $rating-$x > 0 )
-        {$html.= '<i class="fas fa-star-half-alt" style="color:yellow"></i>'; }
+        {$html.= '<i class="fas fa-star-half-alt" style="color:#ffc107;"></i>'; }
         else
         {$html.= '<i class="far fa-star"></i>'; }
     }
@@ -33,15 +33,12 @@ function Bintang($rating){
     <div class="row">
         <div class="col">
             <div class="table-responsive">
-                <table class="table table-bordered text-center">
+                <table class="table table-responsive-md table-borderless table-hover text-center">
                     <tr>
                         <th>No. </th>
                         <th>Judul Novel</th>
                         <th>File Cover</th>
-                        <th>Sinopsis</th>
-                        <th>Tanggal Terbit</th>
-                        <th>User</th>
-                        <th>File Novel</th>
+                        <th>Sinopsis</th>                               
                         <th>Rating</th>
                         <th>Aksi</th>
                     </tr>
@@ -55,23 +52,20 @@ function Bintang($rating){
                 echo "<tr>
                 <td>".$no."</td>
                 <td>".$row['judul_novel']."</td>
-                <td align='center'><img src='".$row['file_cover']."' class='img-thumbnail' width='150px'></td>
+                <td align='center'><img src='".$row['file_cover']."' class='img-thumbnail' width='1000px' height='500px'></td>
                 <td>".$row['sinopsis']."</td>
-                <td>".$row['tgl_terbit']."</td>
-                <td>".$row['nama_user']."</td>
-                <td>
-                <a href='?page=baca_novel&id=".$row['id_novel']."'>Baca</a> 
-                </td>
-                <td>".bintang($row['rating'])." (".$row['rating'].")<div style='font-size:10px; width:100%; text-align:right;'>(".$row['jml_review']." review)</div>
+                
+                <td style='width:125px;'><p style='font-size:15px;'>".bintang($row['rating'])." (".$row['rating'].")</p>
                 ";
                 $sql="SELECT * FROM review WHERE id_novel=".$row['id_novel'];
                 $rreview=mysqli_query($conn,$sql);
                 if(mysqli_num_rows($rreview)>0){
-                echo"<a data-id='".$row['id_novel']."' class='review' style='cursor: pointer;'>Lihat</a>";
+                echo"<a data-id='".$row['id_novel']."' class='review' style='cursor: pointer;'><span class='fa fa-eye'></span></a>";
                 }
                 echo "<td>
-                    <a href='?page=form_edit_novel&id=".$row['id_novel']."'>Edit</a> |
-                    <a style='color:red;' href='?page=hapus_novel&id=".$row['id_novel']."'>Hapus</a>
+                    <a class='btn btn-primary' href='?page=baca_novel&id=".$row['id_novel']."'><span class='fa fa-book-open'></span></a>
+                    <a class='btn btn-success' href='?page=form_edit_novel&id=".$row['id_novel']."'><span class='fa fa-pen'></span></a>
+                    <a class='btn btn-danger' href='?page=hapus_novel&id=".$row['id_novel']."'><span class='fa fa-trash'></span></a>
                 </td>
                 </tr>
                 ";
@@ -91,7 +85,7 @@ function Bintang($rating){
             <div class="modal-body">
             </div>
             <div class="modal-footer" style="border-width:5px;">
-                <button type="button" style="width:100%;" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" style="width:100%;" class="btn btn-primary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

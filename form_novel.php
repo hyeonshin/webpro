@@ -11,21 +11,21 @@ $result_genre=mysqli_query($conn,$sql2);
 <div class="container">
     <div class="row">
         <div class="col">
-            <form action="?page=ssimpan_novel" method="post" enctype="multipart/form-data">
+            <form action="?page=simpan_novel" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label>Masukkan Judul Novel</label>
-                    <input type="text" name="judul_novel" class="form-control" placeholder="Judul Novel ea">
+                    <label>Judul Novel</label>
+                    <input type="text" name="judul_novel" class="form-control" placeholder="Masukkan Judul Novel" required>
                 </div>
                 <div class="form-group">
-                    <label>Masukkan Sinopsis</label>
-                    <textarea name="sinopsis" rows="5" class="form-control" placeholder="Sinopsis ea"></textarea>
+                    <label>Sinopsis</label>
+                    <textarea name="sinopsis" rows="5" class="form-control" placeholder="Masukkan Sinopsis Novel" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label>Masukkan Tanggal Terbit</label>
+                    <label>Tanggal Terbit</label>
                     <input type="date" name="tgl_terbit" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label>Pilih Genre</label>
+                    <label>Genre</label>
                     <?php
                         while ($row = mysqli_fetch_assoc($result_genre)) 
                         {
@@ -39,14 +39,14 @@ $result_genre=mysqli_query($conn,$sql2);
                     ?>
                 </div>
                 <div class="form-group">
-                    <label>Masukkan File Cover</label>
-                    <input type="file" name="file_cover" class="form-control">
+                    <label>File Cover</label>
+                    <input type="file" name="file_cover" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label>Masukkan File Novel</label>
-                    <input type="file" name="file_novel" class="form-control">
+                    <label>File Novel</label>
+                    <input type="file" name="file_novel" class="form-control" required>
                 </div>
-                <input type="submit" class="btn btn-primary" value="Simpan">
+                <input type="submit" class="btn btn-primary" value="Simpan" name="kirim">
             </form>
         </div>
     </div>

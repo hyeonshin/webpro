@@ -67,12 +67,12 @@ $row2=mysqli_fetch_assoc($rreview);
                                     <br>
                                     <fieldset class="rating">
                                         <?php 
-                                        $mnrtkm=['jelek bgt ☹️','b aja', 'mayan','bagus','BAGUS BANGETTT ❤️'];
+                                        $pilihan=['Worst!','Quite Awful', 'Not Good,But Not Bad','Good','Love it!❤️'];
                                         $a=5;
                                         while($a>=1){
                                         if($a==$row2['rating']){
                                             $checked="checked";
-                                            $uwu=$mnrtkm[$a-1];
+                                            $hasil=$pilihan[$a-1];
                                         }else{
                                             $checked="";
                                         }
@@ -86,7 +86,7 @@ $row2=mysqli_fetch_assoc($rreview);
                                     </fieldset>
                                     <br>
                                     <br>
-                                    <div>Menurut kamu novel ini <span class='choice'><?=$uwu?></span></div>
+                                    <div>How do you think about this novel? <span class='choice'><?=$hasil?></span></div>
                                 </div>
                         </div>
                     </div>
@@ -117,7 +117,7 @@ $row2=mysqli_fetch_assoc($rreview);
                                 <div class="form-group">
                                     <label>Review</label>
                                     <textarea name="isi_review" rows="5" maxlength="250"
-                                        placeholder="Masukkan isi review" class="form-control"></textarea>
+                                        placeholder="Masukkan pendapatmu" class="form-control"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Rating</label>
@@ -135,7 +135,7 @@ $row2=mysqli_fetch_assoc($rreview);
                                     </fieldset>
                                     <br>
                                     <br>
-                                    <div>Menurut kamu novel ini <span class="choice">jelek bgt ☹️</span></div>
+                                    <div>How do you think about this novel? <span class="choice">Worst!</span></div>
                                 </div>
                         </div>
                     </div>

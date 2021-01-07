@@ -57,7 +57,7 @@
                     } 
                     ?>
                     <li class="nav-item">
-                    <a class="nav-link" style="cursor: default;">Hai, <?= $_SESSION['nama_user'] ?> </a>
+                    <a class="nav-link" style="cursor: default;">Hai, <?php echo ucwords($_SESSION['nama_user']); ?> </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn btn-danger sign_in_button" href="?page=logout">Sign Out</a>
@@ -121,15 +121,15 @@
     $('.rating input').change(
         function() {
             if (this.value == 1) {
-                $('.choice').text('jelek bgt ☹️');
+                $('.choice').text('Worst!');
             } else if (this.value == 2) {
-                $('.choice').text('b aja');
+                $('.choice').text('Quite Awful');
             } else if (this.value == 3) {
-                $('.choice').text('mayan');
+                $('.choice').text('Not Good,But Not Bad');
             } else if (this.value == 4) {
-                $('.choice').text('bagus');
+                $('.choice').text('Good');
             } else {
-                $('.choice').text('BAGUS BANGETTT ❤️');
+                $('.choice').text('Love it!❤️');
             }
             // $('.choice').text(this.value + ' stars');
         }

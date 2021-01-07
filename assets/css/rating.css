@@ -26,7 +26,7 @@
 }
 
 .rating>input:checked~label {
-    color: #f70;
+    color: #ea0;
 }
 
 .rating:not(:checked)>label:hover,
@@ -39,7 +39,7 @@
 .rating>input:checked~label:hover,
 .rating>input:checked~label:hover~label,
 .rating>label:hover~input:checked~label {
-    color: #ea0;
+    color: #ffc107;
 }
 
 .rating>label:active {

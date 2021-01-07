@@ -4,9 +4,9 @@ function Bintang($rating){
 	for( $x = 0; $x < 5; $x++ )
     {
         if( floor($rating)-$x >= 1 )
-        {$html.= '<i class="fa fa-star" style="color:yellow"></i>'; }
+        {$html.= '<i class="fa fa-star" style="color:#ffc107"></i>'; }
         elseif( $rating-$x > 0 )
-        {$html.= '<i class="fas fa-star-half-alt" style="color:yellow"></i>'; }
+        {$html.= '<i class="fas fa-star-half-alt" style="color:#ffc107"></i>'; }
         else
         {$html.= '<i class="far fa-star"></i>'; }
     }
@@ -29,14 +29,14 @@ $response="";
 
 if(mysqli_num_rows($result)>0){
 $row=mysqli_fetch_assoc($judul);
-$response .= "<h3 class='text-center'>Review untuk novel
-                <strong style='color:red;'>".$row['judul_novel']."</strong>
+$response .= "<h3 class='text-center'>Review Novel
+                ".ucwords($row['judul_novel'])."
             </h3>
             <div style='border-bottom: solid; margin-bottom: 5px;'></div>
             <div class=' table-responsive'>
             <table class='table table-bordered' width='100%'>
-                <tr>
-                    <th>No. </th>
+                <tr class='text-center'>
+                    <th>No.</th>
                     <th>User</th>
                     <th>Review</th>
                     <th>Rating</th>
@@ -50,11 +50,11 @@ while( $row = mysqli_fetch_assoc($result) ){
     $rating = $row['rating'];
     $waktu=$row['wktu'];
     $response .="<tr>
-                    <td>".$no."</td>
+                    <td style='width:100px;'>".$no."</td>
                     <td>".$user."</td>
-                    <td style='max-width:500px;'>".$review."</td>
-                    <td>".bintang($rating)."</td>
-                    <td>".$waktu."</td>
+                    <td>".$review."</td>
+                    <td style='width:125px;'>".bintang($rating)."</td>
+                    <td style='width:200px;'>".$waktu."</td>
                 </tr>";
 }
 $response .= "</table>
